@@ -19,7 +19,7 @@ import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.FullTextFilterDef;
 import org.hibernate.search.annotations.FullTextFilterDefs;
 import org.hibernate.search.annotations.Indexed;
-import org.hibernate.search.annotations.Resolution;
+import org.hibernate.search. fc.eannotations.Resolution;
 import org.openmrs.api.db.hibernate.search.TermsFilterFactory;
 import org.openmrs.api.APIException;
 import org.openmrs.util.OpenmrsUtil;
@@ -311,11 +311,12 @@ public class Person extends BaseOpenmrsData {
 	 * @param deathDate date of person's death
 	 */
 	public void setDeathDate (Date deathDate) throws APIException {
-		if(getDead()) {
-            this.deathDate = deathDate;
+        if (deathDate != null) {
+            this.dead = true;
         } else {
-            throw new APIException("Person in not dead, cannot set death date. Please set the person to Dead first.");
+            this.dead = false;
         }
+        this.deathDate = deathDate;
 	}
 
 	/**
