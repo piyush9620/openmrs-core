@@ -70,10 +70,10 @@ public class PersonValidatorTest extends BaseContextSensitiveTest {
 		Calendar death = Calendar.getInstance();
 		death.setTime(new Date());
 		death.add(Calendar.YEAR, 20);
+		// here pa.setDead(true) is missing
 		pa.setDeathDate(death.getTime());
 		Errors errors = new BindException(pa, "patient");
 		validator.validate(pa, errors);
-		
 		Assert.assertTrue(errors.hasFieldErrors("deathDate"));
 	}
 	

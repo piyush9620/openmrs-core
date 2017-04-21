@@ -311,10 +311,10 @@ public class Person extends BaseOpenmrsData {
 	/**
 	 * @param deathDate date of person's death
 	 */
-	public void setDeathDate(Date deathDate) {
-		this.deathDate = deathDate;
+	public void setDeathDate (Date deathDate) {
+        this.deathDate = deathDate;
 	}
-	
+
 	/**
 	 * @return cause of person's death
 	 */
